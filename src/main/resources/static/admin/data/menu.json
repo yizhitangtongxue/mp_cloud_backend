@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1000,
+    "title": "工作空间",
+    "icon": "layui-icon layui-icon-home",
+    "type": 0,
+    "href": "",
+    "spread": true,
+    "children": [
+      {
+        "id": 1001,
+        "title": "学生动态",
+        "icon": "layui-icon layui-icon-face-smile",
+        "type": 1,
+        "href": "/admin/student_news/index",
+        "spread": true,
+        "openType": "_iframe"
+      },
+      {
+        "id": 1002,
+        "title": "校园互助",
+        "icon": "layui-icon layui-icon-face-smile",
+        "type": 1,
+        "href": "/admin/school_help/index",
+        "spread": true,
+        "openType": "_iframe"
+      },
+      {
+        "id": 1003,
+        "title": "校园兼职",
+        "icon": "layui-icon layui-icon-face-smile",
+        "type": 1,
+        "href": "/admin/parttime_job/index",
+        "spread": true,
+        "openType": "_iframe"
+      },
+      {
+        "id": 1004,
+        "title": "保持清洁",
+        "icon": "layui-icon layui-icon-face-smile",
+        "type": 1,
+        "href": "/admin/clean/index",
+        "spread": true,
+        "openType": "_iframe"
+      },
+      {
+        "id": 1005,
+        "title": "上门维修",
+        "icon": "layui-icon layui-icon-face-smile",
+        "type": 1,
+        "href": "/admin/onsite_repair/index",
+        "spread": true,
+        "openType": "_iframe"
+      },
+      {
+        "id": 1006,
+        "title": "二手市场",
+        "icon": "layui-icon layui-icon-face-smile",
+        "type": 1,
+        "href": "/admin/used_market/index",
+        "spread": true,
+        "openType": "_iframe"
+      },
+      {
+        "id": 1007,
+        "title": "失物招领",
+        "icon": "layui-icon layui-icon-face-smile",
+        "type": 1,
+        "href": "/admin/lost_and_found/index",
+        "spread": true,
+        "openType": "_iframe"
+      },{
+        "id": 1008,
+        "title": "意见反馈",
+        "icon": "layui-icon layui-icon-face-smile",
+        "type": 1,
+        "href": "/admin/feedback/index",
+        "spread": true,
+        "openType": "_iframe"
+      }
+    ]
+  }
+]

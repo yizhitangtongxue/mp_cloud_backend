@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>富文本编辑器</title>
+    <link rel="stylesheet" th:href="@{/static/component/layui/css/layui.css}"/>
+    <link rel="stylesheet" th:href="@{/static/admin/css/pearForm.css}"/>
+    <style>
+        body {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body class="layui-bg-gray">
+<div>
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">请输入管理员信息</div>
+                <div class="layui-card-body layui-row layui-col-space10">
+
+                    <div class="layui-col-md6">
+                        <input type="text" id="username" hover placeholder="用户名" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-col-md6">
+                        <input type="text" id="nickname" hover placeholder="昵称" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-col-md6">
+                        <input type="password" id="password" hover placeholder="密码" autocomplete="off"
+                               class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-card-body layui-row layui-col-space10">
+
+                    <div class="layui-col-md6">
+                        <button class="layui-btn" id="do-add">确认添加</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/static/component/layui/layui.js}"></script>
+<script>
+    layui.use(['table', 'form', 'jquery'], function () {
+        let table = layui.table;
+        let form = layui.form;
+        let $ = layui.jquery;
+
+        let MODULE_PATH = "/admin/user/";
+
+        $("#do-add").on('click', function () {
+
+            let params = {}
+            params.username = $("#username").val();
+            params.nickname = $("#nickname").val();
+            params.password = $("#password").val();
+
+            $.ajax({
+                url: MODULE_PATH + 'store',
+                dataType: 'json',
+                data:JSON.stringify(params),
+                contentType: "application/json;charset=utf-8",
+                type: 'post',
+                success: function (result) {
+                    if (result.code === 0) {
+                        layer.msg(result.msg, {icon: 1, time: 1000});
+                        var index=parent.layer.getFrameIndex(window.name);
+
+                        parent.layer.close(index);
+                        parent.layui.table.reload('data-table')
+                    } else {
+                        layer.msg(result.msg, {icon: 2, time: 1000});
+                    }
+                }
+            })
+        });
+    })
+</script>
+</body>
+</html>
